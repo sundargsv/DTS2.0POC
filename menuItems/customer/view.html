@@ -1,0 +1,335 @@
+<div class="bg-light lter b-b wrapper-md">
+  <h1 class="m-n font-thin h3">Customer # : <span class="badge">{{vm.customer.id}}</span></h1>
+  <small class="text-muted"></small>
+</div>
+
+<div class="wrapper-md">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      Customer Details
+    </div>
+    <div class="panel-body">
+      <div class="row">
+
+          <div class="col-md-6">
+            <div class="panel-heading">
+              Personal Info
+              <a href="#" class="pull-right" style="color: #1199c4;"ng-click="editableForm1.$show()" ng-show="!editableForm1.$visible">Edit</a>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <form editable-form name="editableForm1">
+                  <div class="form-horizontal">
+                    <!-- <div class="form-group">
+                      <label class="col-sm-3 control-label">Title:</label>
+                      <div class="col-sm-6">
+                        <p class="form-control-static">
+                        <span href="#" editable-select="vm.titleItems.value" buttons="no" e-ng-options="title.value for title in vm.titleItems" ng-change="vm.changeTitle()">
+                          {{ vm.customer.contactPerson.title }}
+                        </span>
+                      </p>
+                      </div>
+                    </div> -->
+                    <div class="form-group" >
+                      <label class="col-sm-3 control-label">First Name<span class="text-danger">*</span>:</label>
+                      <div class="col-sm-6">
+                        <p class="form-control-static">
+                          <span editable-text="vm.customer.name" e-required>{{ vm.customer.name || 'empty' }}</span>
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="form-group" >
+                      <label class="col-sm-3 control-label">Middle Name:</label>
+                      <div class="col-sm-6">
+                        <p class="form-control-static">
+                          <span editable-text="vm.customer.contactPerson.surnamePrefix">{{ vm.customer.contactPerson.surnamePrefix || 'empty' }}</span>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="form-group" >
+                      <label class="col-sm-3 control-label">Last Name<span class="text-danger">*</span>:</label>
+                      <div class="col-sm-9">
+                        <p class="form-control-static">
+                          <span editable-text="vm.customer.contactPerson.surname" e-required>{{ vm.customer.contactPerson.surname || 'empty' }}</span>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-sm-9 col-sm-offset-3">
+                        <!-- <button type="button" class="btn btn-default" ng-click="editableForm1.$show()" ng-show="!editableForm1.$visible">
+                          Edit
+                        </button> -->
+                        <!-- buttons to submit / cancel form -->
+                        <span ng-show="editableForm1.$visible">
+                          <button type="submit" class="btn btn-primary" ng-disabled="editableForm1.$waiting">
+                            Save
+                          </button>
+                          <button type="button" class="btn btn-default" ng-disabled="editableForm1.$waiting" ng-click="editableForm1.$cancel()">
+                            Cancel
+                          </button>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- organizationDetails -->
+          <div class="col-md-6">
+              <div class="panel-heading">
+                Organization Details
+                <a href="#" class="pull-right" style="color: #1199c4;"ng-click="editableForm2.$show()" ng-show="!editableForm2.$visible">Edit</a>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <form editable-form name="editableForm2">
+                    <div class="form-horizontal">
+                      <div class="form-group" >
+                        <label class="col-md-4 control-label">Department Name:</label>
+                        <div class="col-md-8">
+                          <p class="form-control-static">
+                            <span editable-text="vm.customer.contactPerson.department" e-required>{{ vm.customer.contactPerson.department || 'empty' }}</span>
+                          </p>
+                        </div>
+                      </div>
+                      <div class="form-group" >
+                        <label class="col-md-4 control-label">Contact Number:</label>
+                        <div class="col-md-8">
+                          <p class="form-control-static">
+                            <span editable-text="vm.customer.contactPerson.contactNumber" e-required>{{ vm.customer.contactPerson.contactNumber || 'empty' }}</span>
+                          </p>
+                        </div>
+                      </div>
+                      <div class="form-group" >
+                        <label class="col-md-4 control-label">Email:</label>
+                        <div class="col-md-8">
+                          <p class="form-control-static">
+                            <span editable-text="vm.customer.email" e-required>{{ vm.customer.email || 'empty' }}</span>
+                          </p>
+                        </div>
+                      </div>
+                      <div class="form-group" >
+                        <label class="col-md-4 control-label">Fax Number:</label>
+                        <div class="col-md-8">
+                          <p class="form-control-static">
+                            <span editable-text="vm.customer.contactPerson.faxNumber" e-required>{{ vm.customer.contactPerson.faxNumber || 'empty' }}</span>
+                          </p>
+                        </div>
+                      </div>
+                      <!-- Button option starts here -->
+                      <div class="form-group">
+                        <div class="col-sm-9 col-sm-offset-3">
+                          <!-- <button type="button" class="btn btn-default" ng-click="editableForm2.$show()" ng-show="!editableForm2.$visible">
+                            Edit
+                          </button> -->
+                          <!-- buttons to submit / cancel form -->
+                          <span ng-show="editableForm2.$visible">
+                            <button type="submit" class="btn btn-primary" ng-disabled="editableForm2.$waiting">
+                              Save
+                            </button>
+                            <button type="button" class="btn btn-default" ng-disabled="editableForm2.$waiting" ng-click="editableForm2.$cancel()">
+                              Cancel
+                            </button>
+                          </span>
+                        </div>
+                      </div>
+
+                      <!-- Button option ends here -->
+                    </div>
+                  </form>
+                </div>
+              </div>
+          </div>
+          <!-- end -->
+          <!-- Customer address -->
+          <div class="col-md-6">
+              <div class="panel-heading">
+                Customer Address
+                <a href="#" class="pull-right" style="color: #1199c4;"ng-click="editableForm3.$show()" ng-show="!editableForm3.$visible">Edit</a>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <form editable-form name="editableForm3">
+                    <div class="form-horizontal">
+                      <div class="form-group" >
+                        <label class="col-sm-3 control-label">House Number:</label>
+                        <div class="col-sm-9">
+                          <p class="form-control-static">
+                            <span editable-text="vm.customer.customerAddress.houseNumber" e-required>{{ vm.customer.customerAddress.houseNumber || 'empty' }}</span>
+                          </p>
+                        </div>
+                      </div>
+                      <div class="form-group" >
+                        <label class="col-sm-3 control-label">Street:</label>
+                        <div class="col-sm-9">
+                          <p class="form-control-static">
+                            <span editable-text="vm.customer.customerAddress.streetName" e-required>{{ vm.customer.customerAddress.streetName || 'empty' }}</span>
+                          </p>
+                        </div>
+                      </div>
+                      <div class="form-group" >
+                        <label class="col-sm-3 control-label">City:</label>
+                        <div class="col-sm-9">
+                          <p class="form-control-static">
+                            <span editable-text="vm.customer.customerAddress.cityName" e-required>{{ vm.customer.customerAddress.cityName || 'empty' }}</span>
+                          </p>
+                        </div>
+                      </div>
+                      <div class="form-group" >
+                        <label class="col-sm-3 control-label">State:</label>
+                        <div class="col-sm-9">
+                          <p class="form-control-static">
+                            <span editable-text="vm.customerUI.state" e-required>{{ vm.customerUI.state || 'empty' }}</span>
+                          </p>
+                        </div>
+                      </div>
+                      <div class="form-group" >
+                        <label class="col-sm-3 control-label">Country:</label>
+                        <div class="col-sm-9">
+                          <p class="form-control-static">
+                            <span editable-text="vm.customer.customerAddress.country" e-required>{{ vm.customer.customerAddress.country || 'empty' }}</span>
+                          </p>
+                        </div>
+                      </div>
+                      <div class="form-group" >
+                        <label class="col-sm-3 control-label">Zip Code:</label>
+                        <div class="col-sm-9">
+                          <p class="form-control-static">
+                            <span editable-text="vm.customer.customerAddress.zipCode" e-required>{{ vm.customer.customerAddress.zipCode || 'empty' }}</span>
+                          </p>
+                        </div>
+                      </div>
+                      <!-- Button option starts here -->
+                      <div class="form-group">
+                        <div class="col-sm-9 col-sm-offset-3">
+                          <!-- <button type="button" class="btn btn-default" ng-click="editableForm3.$show()" ng-show="!editableForm3.$visible">
+                            Edit
+                          </button> -->
+                          <!-- buttons to submit / cancel form -->
+                          <span ng-show="editableForm3.$visible">
+                            <button type="submit" class="btn btn-primary" ng-disabled="editableForm3.$waiting">
+                              Save
+                            </button>
+                            <button type="button" class="btn btn-default" ng-disabled="editableForm3.$waiting" ng-click="editableForm3.$cancel()">
+                              Cancel
+                            </button>
+                          </span>
+                        </div>
+                      </div>
+
+                      <!-- Button option ends here -->
+                    </div>
+                  </form>
+                </div>
+              </div>
+          </div>
+          <!-- end -->
+
+          <!-- Billing Address -->
+          <div class="col-md-6">
+              <div class="panel-heading">
+                Billing Address
+                <a href="#" class="pull-right" style="color: #1199c4;"ng-click="editableForm4.$show()" ng-show="!editableForm4.$visible">Edit</a>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <form editable-form name="editableForm4">
+                    <div class="form-horizontal">
+                      <div class="form-group" >
+                        <label class="col-sm-3 control-label">House Number:</label>
+                        <div class="col-sm-9">
+                          <p class="form-control-static">
+                            <span editable-text="vm.customer.billingAddress.houseNumber" e-required>{{ vm.customer.billingAddress.houseNumber || 'empty' }}</span>
+                          </p>
+                        </div>
+                      </div>
+                      <div class="form-group" >
+                        <label class="col-sm-3 control-label">Street:</label>
+                        <div class="col-sm-9">
+                          <p class="form-control-static">
+                            <span editable-text="vm.customer.billingAddress.streetName" e-required>{{ vm.customer.billingAddress.streetName || 'empty' }}</span>
+                          </p>
+                        </div>
+                      </div>
+                      <div class="form-group" >
+                        <label class="col-sm-3 control-label">City:</label>
+                        <div class="col-sm-9">
+                          <p class="form-control-static">
+                            <span editable-text="vm.customer.billingAddress.cityName" e-required>{{ vm.customer.billingAddress.cityName || 'empty' }}</span>
+                          </p>
+                        </div>
+                      </div>
+                      <div class="form-group" >
+                        <label class="col-sm-3 control-label">State:</label>
+                        <div class="col-sm-9">
+                          <p class="form-control-static">
+                            <span editable-text="vm.customerUI.state" e-required>{{ vm.customerUI.state || 'empty' }}</span>
+                          </p>
+                        </div>
+                      </div>
+                      <div class="form-group" >
+                        <label class="col-sm-3 control-label">Country:</label>
+                        <div class="col-sm-9">
+                          <p class="form-control-static">
+                            <span editable-text="vm.customer.billingAddress.country" e-required>{{ vm.customer.billingAddress.country || 'empty' }}</span>
+                          </p>
+                        </div>
+                      </div>
+                      <div class="form-group" >
+                        <label class="col-sm-3 control-label">Zip Code:</label>
+                        <div class="col-sm-9">
+                          <p class="form-control-static">
+                            <span editable-text="vm.customer.billingAddress.zipCode" e-required>{{ vm.customer.billingAddress.zipCode || 'empty' }}</span>
+                          </p>
+                        </div>
+                      </div>
+                      <!-- Button option starts here -->
+                      <div class="form-group">
+                        <div class="col-sm-9 col-sm-offset-3">
+                          <!-- <button type="button" class="btn btn-default" ng-click="editableForm4.$show()" ng-show="!editableForm4.$visible">
+                            Edit
+                          </button> -->
+                          <!-- buttons to submit / cancel form -->
+                          <span ng-show="editableForm4.$visible">
+                            <button type="submit" class="btn btn-primary" ng-disabled="editableForm4.$waiting">
+                              Save
+                            </button>
+                            <button type="button" class="btn btn-default" ng-disabled="editableForm4.$waiting" ng-click="editableForm4.$cancel()">
+                              Cancel
+                            </button>
+                          </span>
+                        </div>
+                      </div>
+
+                      <!-- Button option ends here -->
+                    </div>
+                  </form>
+                </div>
+              </div>
+          </div>
+          <!-- end -->
+      </div>
+      <div class="col-sm-12">
+        <!-- <button class="btn m-b-xs w-xs btn-default disabled" ng-if="!vm.changedFlag">Submit</button> -->
+        <button class="btn m-b-xs w-xs btn-success" ng-hide="vm.saving || vm.modified " ng-click="vm.submitEditCustomer();">Submit</button>
+        <button class="btn m-b-xs w-xs btn-default" ng-hide="vm.saving" >Cancel</button>
+        <div class="m-t m-b">
+          <div class="alert alert-success alert-dismissible" role="alert" ng-show="vm.savedStatus && !vm.savedError">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Success! &nbsp;</strong>{{vm.savedMsg}}
+          </div>
+        <div class="alert alert-info alert-dismissible" role="alert" ng-show="!vm.savedStatus && !vm.savedError && vm.saving">
+          <i class="fa fa-spinner"></i><strong>&nbsp;Saving the changes.....</strong>Please wait!
+        </div>
+        <div class="alert alert-danger alert-dismissible" role="alert" ng-show="!vm.savedStatus && vm.savedError">
+          <strong>Error!</strong>{{vm.savedMsg}}
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,71 @@
+<div class="bg-light lter b-b wrapper-md">
+  <h1 class="m-n font-thin h3">Customer Search</h1>
+</div>
+
+<div class="wrapper-md">
+  <div class="panel panel-default">
+    <div class="panel-heading font-bold">
+    Search By
+    </div>
+    <div class="panel-body">
+      <form class="form-inline" role="form" ng-submit="customSearch(searchCustomer.id, searchCustomer.name);">
+        <div class="form-group">
+          <label class="sr-only" for="exampleInputEmail2">Customer ID</label>
+          <input type="text" class="form-control" placeholder="Customer ID" ng-model="searchCustomer.id">
+        </div>
+        <div class="form-group">
+          <label class="sr-only" for="exampleInputPassword2" >Customer Name</label>
+          <input type="text" class="form-control" placeholder="Customer Name" ng-model="searchCustomer.name">
+        </div>
+        <button type="submit" class="btn btn-info btn-addon" ng-disabled="searching" style="background-color: #337ab7" ><i class="fa fa-search"></i>  Search</button>
+      </form>
+
+      <p ng-show="error" style="color: red">No Results Found</p>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">Customer Search</div>
+    <table class="table table-striped m-b-none"  st-pipe="callServer" st-table="smartTableData">
+      <thead>
+      <tr class="sortable">
+        <th class="table-id" st-sort="id" st-sort-default="true">Customer ID</th>
+        <th st-sort="name">Name</th>
+        <th st-sort="contactNumber">Contact Number</th>
+        <th st-sort="email">Email</th>
+        <th>View/ Edit</th>
+
+      </tr>
+      <!-- <tr>
+        <th></th>
+        <th><input st-search="name" placeholder="Search First Name" class="input-sm form-control search-input"
+                   type="search"/></th>
+      </tr> -->
+      </thead>
+      <tbody ng-show="!isLoading">
+      <tr ng-repeat="item in smartTableData">
+        <td class="table-id">{{item.id}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.contactPerson.contactNumber}}</td>
+        <td>{{item.email}}</td>
+        <td>
+          <a ui-sref="app.customer.view({item : item})"><i class="fa fa-eye"></i></a>
+          <!-- <a href="" ><i class="fa fa-edit"></i></a> -->
+        </td>
+
+      </tr>
+      </tbody>
+      <tbody ng-show="isLoading">
+      	<tr>
+      		<td colspan="5" class="text-center"><i class="fa fa-spinner"></i></td>
+      	</tr>
+  	 </tbody>
+      <tfoot>
+      <tr>
+        <td colspan="5" class="text-center">
+          <div st-pagination="" st-items-by-page="smartTablePageSize" st-displayed-pages="5"></div>
+        </td>
+      </tr>
+      </tfoot>
+  </table>
+  </div>
+</div>

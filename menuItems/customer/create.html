@@ -1,0 +1,197 @@
+<div class="bg-light lter b-b wrapper-md">
+  <h1 class="m-n font-thin h3">Customer Create</h1>
+</div>
+<div class="wrapper-md">
+  <tabset class="tab-container" ng-init="steps={percent:20, step1:true, step2:false, step3:false, step4:false, step5:false}">
+    <tab heading="Personal Info" active="steps.step1" select="steps.percent=10">
+      <p class="m-b">Fields with <span class="text-danger">*</span> are mandatory.</p>
+      <progressbar value="steps.percent" class="progress-xs" type="success"></progressbar>
+      <h4>Customer Details</h4>
+      <form name="step1" class="form-validation" ng-submit="vm.step1Submit(step1.$valid);" novalidate>
+        <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                  <p>Title</p>
+                  <select class="form-control" selectpicker ng-options="titleItem as titleItem.value for titleItem in vm.personalInfo.titleItems track by titleItem.id" ng-model="vm.personalInfo.titleSelected"></select>
+              </div>
+              <div class="form-group" ng-class="{ 'has-error' : step1.firstName.$invalid && !step1.firstName.$pristine }">
+                <p>First Name<span class="text-danger">*</span></p>
+                <input type="text" name="firstName" class="form-control" ng-model="vm.personalInfo.firstName" required ng-change="step1.firstName.$valid ? (steps.percent=10) : (steps.percent=5)">
+                <p ng-show="step1.firstName.$invalid && !step1.firstName.$pristine" class="help-block">You first Name is required.</p>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <p>Middle Name</p>
+                <input type="text" name="middleName" class="form-control" ng-model="vm.personalInfo.middleName">
+              </div>
+              <div class="form-group" ng-class="{ 'has-error' : step1.lastName.$invalid && !step1.lastName.$pristine }">
+                <p>Last Name<span class="text-danger">*</span></p>
+                <input type="text" name="lastName" class="form-control" ng-model="vm.personalInfo.lastName" required ng-change="step1.lastName.$valid ? (steps.percent=20) : (steps.percent=15)">
+                <p ng-show="step1.lastName.$invalid && !step1.lastName.$pristine" class="help-block">You last Name is required.</p>
+              </div>
+            </div>
+        </div>
+        <div class="m-t m-b">
+          <button type="submit" ng-disabled="step1.$invalid" class="btn btn-default btn-rounded" ng-click="steps.step2=true">Save and continue</button>
+        </div>
+      </form>
+    </tab>
+    <tab heading="Organization Details" disabled="step1.$invalid" active="steps.step2" select="steps.percent=20">
+      <form name="step2" class="form-validation" ng-submit="vm.step2Submit(step2.$valid);" novalidate>
+        <p class="m-b">Fill the required &amp; click save and continue.</p>
+        <progressbar value="steps.percent" class="progress-xs" type="success"></progressbar>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group" ng-class="{ 'has-error' : step2.department.$invalid && !step2.department.$pristine }">
+              <p>Department Name<span class="text-danger">*</span></p>
+              <input type="text" name="department" class="form-control" ng-model="vm.organizationDetails.department" required ng-change="step2.department.$valid ? (steps.percent=25) : (steps.percent=20)">
+              <p ng-show="step2.department.$invalid && !step2.department.$pristine" class="help-block">You Department name is required.</p>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error' : step2.email.$invalid && !step2.email.$pristine }">
+              <p>Email<span class="text-danger">*</span></p>
+              <input type="email" name="email" class="form-control" ng-model="vm.organizationDetails.email" required ng-change="step2.email.$valid ? (steps.percent=30) : (steps.percent=25)">
+              <p ng-show="step2.email.$invalid && !step2.email.$pristine" class="help-block">You email is required.</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group" ng-class="{ 'has-error' : step2.contactNumber.$invalid && !step2.contactNumber.$pristine }">
+              <p>Contact Number<span class="text-danger">*</span></p>
+              <input type="text" name="contactNumber" class="form-control" ng-model="vm.organizationDetails.contactNumber" required ng-change="step2.contactNumber.$valid ? (steps.percent=35) : (steps.percent=25)">
+              <p ng-show="step2.contactNumber.$invalid && !step2.contactNumber.$pristine" class="help-block">You Contact number is required.</p>
+            </div>
+            <div class="form-group">
+              <p>Fax Number</p>
+              <input type="text" name="faxNumber" class="form-control" ng-model="vm.organizationDetails.faxNumber">
+            </div>
+          </div>
+        </div>
+        <div class="m-t m-b">
+          <button type="button" class="btn btn-default btn-rounded" ng-click="steps.step1=true">Prev</button>
+          <button type="submit" ng-disabled="step2.$invalid" class="btn btn-default btn-rounded" ng-click="steps.step3=true">Save and continue</button>
+        </div>
+      </form>
+    </tab>
+
+    <tab heading="Customer Address" disabled="step2.$invalid" active="steps.step3" select="steps.percent=40">
+      <form name="step3" class="form-validation" ng-submit="vm.step3Submit(step3.$valid);" novalidate>
+        <p class="m-b">Fill the required &amp; click save and continue.</p>
+        <progressbar value="steps.percent" class="progress-xs" type="success"></progressbar>
+        <div class="row">
+            <div class="col-md-6">
+
+              <div class="form-group" ng-class="{ 'has-error' : step3.houseNumber.$invalid && !step3.houseNumber.$pristine }">
+                <p>House Number<span class="text-danger">*</span></p>
+                <input type="text" name="houseNumber" class="form-control" ng-model="vm.customerAddress.houseNumber" required ng-change="step3.houseNumber.$valid ? (steps.percent=43) : (steps.percent=40)">
+                <p ng-show="step3.houseNumber.$invalid && !step3.houseNumber.$pristine" class="help-block">You House number is required.</p>
+              </div>
+              <div class="form-group" ng-class="{ 'has-error' : step3.street.$invalid && !step3.street.$pristine }">
+                <p>Street<span class="text-danger">*</span></p>
+                <input type="text" name="street" class="form-control" ng-model="vm.customerAddress.street" required ng-change="step3.street.$valid ? (steps.percent=45) : (steps.percent=43)">
+                <p ng-show="step3.street.$invalid && !step3.street.$pristine" class="help-block">You Street is required.</p>
+              </div>
+              <div class="form-group" ng-class="{ 'has-error' : step3.city.$invalid && !step3.city.$pristine }">
+                <p>City<span class="text-danger">*</span></p>
+                <input type="text" name="city" class="form-control"
+                      vs-google-autocomplete="{ types:['(cities)'] }"
+                      ng-model="vm.customerAddress.city.name"
+                      vs-state="vm.customerAddress.state"
+                      vs-country="vm.customerAddress.country" required ng-change="step3.city.$valid ? (steps.percent=50) : (steps.percent=45)">
+                <p ng-show="step3.city.$invalid && !step3.city.$pristine" class="help-block">You City is required.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group" ng-class="{ 'has-error' : step3.state.$invalid && !step3.state.$pristine }">
+                <p>State<span class="text-danger">*</span></p>
+                <input type="text" name="state" class="form-control" ng-model="vm.customerAddress.state" required ng-change="step3.state.$valid ? (steps.percent=53) : (steps.percent=50)">
+                <p ng-show="step3.state.$invalid && !step3.state.$pristine" class="help-block">You State is required.</p>
+              </div>
+              <div class="form-group" ng-class="{ 'has-error' : step3.country.$invalid && !step3.country.$pristine }">
+                <p>Country<span class="text-danger">*</span></p>
+                <input type="text" name="country" class="form-control" ng-model="vm.customerAddress.country" required ng-change="step3.country.$valid ? (steps.percent=55) : (steps.percent=53)">
+                <p ng-show="step3.country.$invalid && !step3.country.$pristine" class="help-block">You Country is required.</p>
+              </div>
+              <div class="form-group" ng-class="{ 'has-error' : step3.zipCode.$invalid && !step3.zipCode.$pristine }">
+                <p>Zip Code<span class="text-danger">*</span></p>
+                <input type="text" name="zipCode" class="form-control" ng-model="vm.customerAddress.zipCode" required ng-change="step3.zipCode.$valid ? (steps.percent=58) : (steps.percent=55)">
+                <p ng-show="step3.zipCode.$invalid && !step3.zipCode.$pristine" class="help-block">You Zip Code is required.</p>
+              </div>
+            </div>
+        </div>
+        <div class="m-t m-b">
+          <button type="button" class="btn btn-default btn-rounded" ng-click="steps.step2=true">Prev</button>
+          <button type="submit" ng-disabled="step3.$invalid" class="btn btn-default btn-rounded" ng-click="steps.step4=true">Save and continue</button>
+        </div>
+      </form>
+    </tab>
+    <tab heading="Billing Address" disabled="step3.$invalid" active="steps.step4" select="steps.percent=60">
+      <form name="step4" class="form-validation" ng-submit="vm.step4Submit(step4.$valid);" novalidate>
+        <p class="m-b">Fill the required &amp; click save and submit.</p>
+        <label class="checkbox i-checks m-l-md m-b-md">
+          <input type="checkbox" ng-model="vm.sameAsCustomerAddressChk" ng-click="vm.sameAsCustomerAddress();"><i></i>
+          Same as Customer Address
+        </label>
+        <progressbar value="steps.percent" class="progress-xs" type="success"></progressbar>
+        <div class="row">
+            <div class="col-md-6">
+              <div class="form-group" ng-class="{ 'has-error' : step4.houseNumber.$invalid && !step4.houseNumber.$pristine }">
+                <p>House Number<span class="text-danger">*</span></p>
+                <input type="text" name="houseNumber" class="form-control" ng-model="vm.billingAddress.houseNumber" required ng-change="step4.houseNumber.$valid ? (steps.percent=63) : (steps.percent=60)">
+                <p ng-show="step4.houseNumber.$invalid && !step4.houseNumber.$pristine" class="help-block">You House number is required.</p>
+              </div>
+              <div class="form-group" ng-class="{ 'has-error' : step4.street.$invalid && !step4.street.$pristine }">
+                <p>Street<span class="text-danger">*</span></p>
+                <input type="text" name="street" class="form-control" ng-model="vm.billingAddress.street" required ng-change="step4.street.$valid ? (steps.percent=65) : (steps.percent=63)">
+                <p ng-show="step4.street.$invalid && !step4.street.$pristine" class="help-block">You Street is required.</p>
+              </div>
+              <div class="form-group" ng-class="{ 'has-error' : step4.city.$invalid && !step4.city.$pristine }">
+                <p>City<span class="text-danger">*</span></p>
+                <input type="text" name="city" class="form-control"
+                vs-google-autocomplete="{ types:['(cities)'] }"
+                ng-model="vm.billingAddress.city.name"
+                vs-state="vm.billingAddress.state"
+                vs-country="vm.billingAddress.country" required ng-change="step4.city.$valid ? (steps.percent=70) : (steps.percent=65)">
+                <p ng-show="step4.city.$invalid && !step4.city.$pristine" class="help-block">You City is required.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group" ng-class="{ 'has-error' : step4.state.$invalid && !step4.state.$pristine }">
+                <p>State<span class="text-danger">*</span></p>
+                <input type="text" name="state" class="form-control" ng-model="vm.billingAddress.state" required ng-change="step4.state.$valid ? (steps.percent=73) : (steps.percent=70)">
+                <p ng-show="step4.state.$invalid && !step4.state.$pristine" class="help-block">You State is required.</p>
+              </div>
+              <div class="form-group" ng-class="{ 'has-error' : step4.country.$invalid && !step4.country.$pristine }">
+                <p>Country<span class="text-danger">*</span></p>
+                <input type="text" name="country" class="form-control" ng-model="vm.billingAddress.country" required ng-change="step4.country.$valid ? (steps.percent=75) : (steps.percent=73)">
+                <p ng-show="step4.country.$invalid && !step4.country.$pristine" class="help-block">You Country is required.</p>
+              </div>
+              <div class="form-group" ng-class="{ 'has-error' : step4.zipCode.$invalid && !step4.zipCode.$pristine }">
+                <p>Zip Code<span class="text-danger">*</span></p>
+                <input type="text" name="zipCode" class="form-control" ng-model="vm.billingAddress.zipCode" required ng-change="step4.zipCode.$valid ? (steps.percent=78) : (steps.percent=75)">
+                <p ng-show="step4.zipCode.$invalid && !step4.zipCode.$pristine" class="help-block">You Zip Code is required.</p>
+              </div>
+            </div>
+        </div>
+        <div class="m-t m-b">
+          <button type="button" class="btn btn-default btn-rounded" ng-click="steps.step3=true">Prev</button>
+          <button type="submit" ng-disabled="step4.$invalid" class="btn btn-default btn-rounded" ng-click="steps.step5=true">Save and submit</button>        </div>
+      </form>
+    </tab>
+    <tab heading="Finish" disabled="step4.$invalid" active="steps.step5" select="steps.percent=100">
+      <progressbar value="steps.percent" class="progress-xs" type="success"></progressbar>
+      <div class="m-t m-b">
+        <div class="alert alert-success alert-dismissible" role="alert" ng-show="vm.savedStatus && !vm.savedError">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <strong>Success! &nbsp;</strong>{{vm.savedMsg}}
+        </div>
+      <div class="alert alert-info alert-dismissible" role="alert" ng-show="!vm.savedStatus && !vm.savedError && vm.saving">
+        <i class="fa fa-spinner"></i><strong>&nbsp;Saving.....</strong>Please wait!
+      </div>
+      <div class="alert alert-danger alert-dismissible" role="alert" ng-show="!vm.savedStatus && vm.savedError">
+        <strong>Error!</strong>{{vm.savedMsg}}
+      </div>
+      </div>
+    </tab>
+  </tabset>
+</div>
