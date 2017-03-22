@@ -1,7 +1,7 @@
 {
-  "name": "BootstrapAngularAdminWebApp",
-  "version": "2.0.1",
-  "description": "Admin web application template with Bootstrap 3 and AngularJS.",
+  "name": "DTS",
+  "version": "2.0.0",
+  "description": "Billing & Rating (Telecom/ Financial) web application with Bootstrap 3 and AngularJS.",
   "scripts": {
     "start": "node node_modules/http-server/bin/http-server -o"
   },
@@ -29,9 +29,9 @@
     "app",
     "widgets"
   ],
-  "repository": "https://heyflat@bitbucket.org/heyflat/angulr.git",
-  "author": "Flatfull",
-  "license": "Envato REGULAR LICENSE",
+  "repository": "https://github.com/sundargsv/DTS2.0POC.git",
+  "author": "Sundar Gsv & Team",
+  "license": "Daemon REGULAR LICENSE",
   "dependencies": {},
   "devDependencies": {
     "grunt": "^0.4.5",
